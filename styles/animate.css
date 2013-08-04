@@ -1,0 +1,107 @@
+/* photoset list directive */
+.photoset-list-enter,
+.photoset-list-leave {
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+}
+
+.photoset-list-enter.photoset-list-enter-active,
+.photoset-list-leave {
+  opacity: 1;
+  top: 0;
+  height: 30px;
+}
+
+.photoset-list-leave.photoset-list-leave-active,
+.photoset-list-enter {
+  opacity: 0;
+  top: -50px;
+  height: 0px;
+}
+
+/* photoset thumbnails directive */
+.photoset-thumbnails-enter,
+.photoset-thumbnails-leave {
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+}
+
+.photoset-thumbnails-leave.photoset-thumbnails-leave-active,
+.photoset-thumbnails-enter {
+  -webkit-transform: rotateX(90deg) rotateZ(90deg);
+  -moz-transform: rotateX(90deg) rotateZ(90deg);
+  -ms-transform: rotateX(90deg) rotateZ(90deg);
+  -o-transform: rotateX(90deg) rotateZ(90deg);
+  transform: rotateX(90deg) rotateZ(90deg);
+  opacity: 0;
+  height: 0px;
+}
+
+.photoset-thumbnails-enter.photoset-thumbnails-enter-active,
+.photoset-thumbnails-leave {
+  -webkit-transform: rotateX(0deg) rotateZ(0deg);
+  -moz-transform: rotateX(0deg) rotateZ(0deg);
+  -ms-transform: rotateX(0deg) rotateZ(0deg);
+  -o-transform: rotateX(0deg) rotateZ(0deg);
+  transform: rotateX(0deg) rotateZ(0deg);
+  opacity: 1;
+  height: 30px;
+}
+
+/* photoset slideshow directive */
+.photoset-slideshow-enter,
+.photoset-slideshow-leave {
+  -webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+}
+
+.photoset-slideshow-enter {
+  left: 100%;
+}
+
+.photoset-slideshow-enter.photoset-slideshow-enter-active {
+  left: 0;
+}
+
+.photoset-slideshow-leave {
+  left: 0;
+}
+
+.photoset-slideshow-leave.photoset-slideshow-leave-active {
+  left: -100%;
+}
+
+/* Loading balls */
+.loading-balls-enter-setup {
+  -webkit-transition: 1s linear all; /* Safari/Chrome */
+  -moz-transition: 1s linear all; /* Firefox */
+  -ms-transition: 1s linear all; /* IE10 */
+  -o-transition: 1s linear all; /* Opera */
+  transition: 3s linear all; /* Future Browsers */
+
+  /* The animation preparation code */
+  opacity: 0;
+}
+
+/*
+ Keep in mind that you want to combine both CSS
+ classes together to avoid any CSS-specificity
+ conflicts
+*/
+.loading-balls-enter-setup.loading-balls-enter-start {
+  /* The animation code itself */
+  opacity: 1;
+}
