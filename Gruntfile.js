@@ -294,7 +294,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           '<%= yeoman.dist %>/angular-flickr.min.js': [
-            '<%= yeoman.dist %>/**/*.js'
+            '<%= yeoman.dist %>/modules/flickr.js', '<%= yeoman.dist %>/modules/services/**/*.js', '<%= yeoman.dist %>/modules/directives/**/*.js'
           ]
         }
       }
