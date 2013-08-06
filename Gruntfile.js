@@ -114,7 +114,7 @@ module.exports = function (grunt) {
           }
         ]
       },
-      up: '<%= yeoman.dist %>/modules',
+      up: ['<%= yeoman.dist %>/modules', '<%= yeoman.dist %>/styles'],
       server: '.tmp'
     },
 //    coffee: {
@@ -183,19 +183,18 @@ module.exports = function (grunt) {
 //        ]
 //      }
 //    },
-//    cssmin: {
-//      // By default, your `index.html` <!-- Usemin Block --> will take care of
-//      // minification. This option is pre-configured if you do not wish to use
-//      // Usemin blocks.
-//      dist: {
-//        files: {
-//          '<%= yeoman.dist %>/styles/main.css': [
-//            '.tmp/styles/**/*.css',
-//            '<%= yeoman.app %>/styles/**/*.css'
-//          ]
-//        }
-//      }
-//    },
+    cssmin: {
+      // By default, your `index.html` <!-- Usemin Block --> will take care of
+      // minification. This option is pre-configured if you do not wish to use
+      // Usemin blocks.
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/angular-flickr.min.css': [
+            '<%= yeoman.dist %>/styles/**/*.css'
+          ]
+        }
+      }
+    },
 //    htmlmin: {
 //      dist: {
 //        options: {
@@ -286,7 +285,8 @@ module.exports = function (grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, src: ['<%= yeoman.app %>/**/*'], dest: '<%= yeoman.dist %>', filter: 'isFile'} // includes files in path
+          {expand: true, src: ['<%= yeoman.app %>/**/*'], dest: '<%= yeoman.dist %>'}, // includes files in path
+          {expand: true, src: ['<%= yeoman.app %>/../styles/**/*'], dest: '<%= yeoman.dist %>'} // includes files in path
         ]
       }
     },
@@ -330,7 +330,7 @@ module.exports = function (grunt) {
     'copy',
 //    'cdnify',
     'ngmin',
-//    'cssmin',
+    'cssmin',
     'uglify',
     'clean:up'
 //    'rev',
