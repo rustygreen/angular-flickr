@@ -5,7 +5,7 @@ A flickr module for angular js. The module includes support for creating a photo
 
 You can view a Flickr "Set" gallery demo here: [www.rustygreen.com/angular-flickr](http://rustygreen.com/angular-flickr?ref=github)
 
-There are no dependencies required for this angular module (other than angular js), but all directives do have pre-set css classes to look good in Bootstrap 3.0
+There are no dependencies required for this angular module (other than angular js), but all directives do have pre-set css classes to look good with Bootstrap 3.0 css (Bootstrap javascript is not required - which means no jquery either)
 
 ##Application Configuration
 Common configurations related to the Flickr API, as well as default and options, can be set using angular's module value method
