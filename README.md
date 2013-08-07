@@ -7,6 +7,30 @@ You can view a Flickr "Set" gallery demo here: [www.rustygreen.com/angular-flick
 
 There are no dependencies required for this angular module (other than angular js), but all directives do have pre-set css classes to look good with Bootstrap 3.0 css (Bootstrap javascript is not required - which means no jquery either)
 
+##Installation
+Installation is easy since the angular-flickr module has no dependencies:
+
+#####Install with bower:
+<pre>bower install angular-flickr</pre>
+
+#####Application:
+<pre>// Include the css:
+&lt;link rel=&quot;stylesheet&quot; href=&quot;bower_components/angular-flickr/dist/angular-flickr.min.css&quot;&gt;
+
+// Include the js:
+&lt;script src=&quot;bower_components/angular-flickr/dist/angular-flickr.min.js&quot;&gt;&lt;/script&gt;
+
+// Add the flickr module as a dependency to your application:
+module('myApp', ['flickr'])
+
+// You're good to go! Start using the flickr directives and services...</pre>
+
+
+Don't use Bower? Shame on you... I suppose you could include the files from here (don't use this in production!):
+<pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://rawgithub.com/rustygreen/angular-flickr/master/dist/angular-flickr.min.css&quot;&gt;
+&lt;script src=&quot;https://rawgithub.com/rustygreen/angular-flickr/master/dist/angular-flickr.min.js&quot;&gt;&lt;/script&gt;</pre>
+
+
 ##Application Configuration
 Common configurations related to the Flickr API, as well as default and options, can be set using angular's module value method
 
