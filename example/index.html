@@ -17,10 +17,11 @@
 
     <link rel="stylesheet" href="styles/css/bootstrap.css">
     <link rel="stylesheet" href="styles/css/bootstrap-glyphicons.css">
+    <link rel="stylesheet" href="styles/css/app.css">
     <!--<link rel="stylesheet" href="../styles/animate.css">-->
     <!--<link rel="stylesheet" href="../styles/loading.css">-->
     <!--<link rel="stylesheet" href="../styles/modules.css">-->
-    <link rel="stylesheet" href="https://rawgithub.com/rustygreen/angular-flickr/master/dist/angular-flickr.min.js">
+    <link rel="stylesheet" href="https://rawgithub.com/rustygreen/angular-flickr/master/dist/angular-flickr.min.css">
 </head>
 <body ng-app="flickrApp" class="ng-cloak">
 <!--[if lt IE 7]>
@@ -30,7 +31,7 @@
 <![endif]-->
 
 <!-- ng routes hook -->
-<div ng-view></div>
+<div ng-view class="main-view"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-resource.min.js"></script>

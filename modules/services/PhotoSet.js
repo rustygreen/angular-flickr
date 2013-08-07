@@ -26,7 +26,7 @@ angular.module('flickr.services')
         }
       }
 
-    }, flickrConfig.photoSet);
+    }, flickrConfig.photoset);
 
     //get: '?method=flickr.photosets.getPhotos&api_key=8f423858224200b697154135ac10103a&photoset_id=72157634726653786&format=json&nojsoncallback=1'
     return $resource(config.url, config.params.common, {

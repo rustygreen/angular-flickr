@@ -1,0 +1,15 @@
+html{
+  border-top: 6px solid #999;
+  border-bottom: 12px solid #999;
+  background-color: #ddd;
+}
+
+body{
+  border-top: 4px solid #ddd;
+  margin-bottom: 300px;
+  background-color: #fff;
+}
+
+.main-view{
+  box-shadow: inset 1px 1px 20px #999;
+}
