@@ -1,0 +1,5 @@
+<ul class="nav navbar-nav" ng-controller="NavCtrl">
+    <li ng-repeat="nav in navs" ng-class="{active:active('{{nav.path}}')}">
+        <a href="#{{nav.path}}">{{nav.title}}</a>
+    </li>
+</ul>

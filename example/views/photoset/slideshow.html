@@ -1,19 +1,18 @@
 <div class="container">
-    <h1>Angular Flickr <small>an angularjs module that extends the flickr API</small></h1>
+    <h1>Angular Flickr <small>photoset slideshow directive</small></h1>
 
-    <photoset-panel panel-title="Flickr Photo Sets"></photoset-panel>
+    <photoset-slideshow set-id="72157634909050908" size="large"></photoset-slideshow>
 
     <div class="alert" style="border-left: 5px solid #f1e7bc; margin-top: 20px;">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Angular Flickr</strong> This demo page is an example of using the <a href="https://github.com/rustygreen/angular-flickr/">angular-flickr project</a>. The flick gallery below if the result of the following code:
+        <strong>Angular Flickr</strong> This demo page is an example of using the <a href="https://github.com/rustygreen/angular-flickr/">angular-flickr module</a>. The flick gallery below if the result of the following code:
         <code>
 <pre>module('myApp').value('flickrConfig', {
     user_id: '99179128@N07',
     api_key: '006d5ace5a1ec6e87d501a2753da1bc7'
   })</pre>
-
 <pre>&lt;div <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"container"</span>&gt;
-    &lt;photoset-panel panel-title=<span style=' color: Maroon;'>"Flickr Photo Sets"</span>&gt;&lt;/photoset-panel&gt;
+    &lt;photoset-slideshow set-id=&quot;72157634909050908&quot; size=&quot;large&quot;&gt;&lt;/photoset-slideshow&gt;
 &lt;/div&gt;</pre>
         </code>
 

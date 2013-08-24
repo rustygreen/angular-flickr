@@ -7,7 +7,7 @@ angular.module('flickr.services')
       params: {
         common: {
           format: 'json',     // Optional.
-          api_key: flickrConfig.api_key || '006d5ace5a1ec6e87d501a2753da1bc7',
+          api_key: flickrConfig.api_key || flickrConfig.apiKey || '006d5ace5a1ec6e87d501a2753da1bc7',
           jsoncallback: 'JSON_CALLBACK'
         },
         get: {
@@ -34,6 +34,17 @@ angular.module('flickr.services')
         params: config.params.get,
         callback: config.params.jsoncallback,
         transformResponse: function (data) {
+          if (!data || !data.photoset || !data.photoset.photo) {
+            return;
+          }
+
+//          TODO: Add the next/previous functionality here.
+//          data.photoset.next = function(){
+//          };
+//
+//          data.photoset.previous = function(){
+//          };
+
           angular.forEach(data.photoset.photo, function (photo) {
             var url = 'http://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret;
             angular.extend(photo, {

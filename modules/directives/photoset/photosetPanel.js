@@ -4,11 +4,12 @@ angular.module('flickr.directives')
   .directive('photosetPanel', function (flickrLoading) {
     return {
       scope: {
-        panelTitle: '@'
+        panelTitle: '@',
+        panelClass: '@'
       },
       restrict: 'EA',
       replace: true,
-      template: '<div class="panel">' +
+      template: '<div class="panel {{panelClass}}">' +
         '<div class="panel-heading">' +
         '<div class="panel-title">{{panelTitle}} <loading-balls class="pull-right"></loading-balls></div>' +
         '</div>' +
@@ -23,7 +24,7 @@ angular.module('flickr.directives')
         '</div>' +
 
         '<div class="col-lg-9">' +
-        '<photoset-slideshow photo="photo"></photoset-slideshow>' +
+        '<photoset-slideshow photo="photo" photo-class="thumbnail"></photoset-slideshow>' +
         '</div>' +
         '</div>' +
         '</div>',

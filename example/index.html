@@ -10,8 +10,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <meta name="description" content="">
+    <title>angular-flickr module</title>
+    <meta name="description" content="A flickr module for angular js. The module includes support for creating a photo gallery, thumbnail view, and all of the directives/filters/services to support it using the Flickr API.">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -31,6 +31,8 @@
 <![endif]-->
 
 <!-- ng routes hook -->
+<div id="nav" class="navbar" ng-include="'views/navbar.html'"></div>
+
 <div ng-view class="main-view"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
@@ -52,6 +54,7 @@
 
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/nav.js"></script>
 
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
