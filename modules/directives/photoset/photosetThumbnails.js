@@ -10,12 +10,13 @@ angular.module('flickr.directives')
       scope: {
         setId: '@',
         photo: '=',
-        thumbnailClass: '@'
+        thumbnailClass: '@',
+        useFilter: '='
       },
       restrict: 'EA',
       replace: true,
-      template: '<div class="photoset-thumbnails">' +
-                  '<photo-filter search="search" orders=""></photo-filter>' +
+      template: '<div>' +
+                  '<photo-filter search="search" orders="" ng-if="useFilter"></photo-filter>' +
                   // Note that we don't have an href tag on this anchor and we have to manually set the cursor to a pointer (by using 'clicky' class). Not sure
                   // why this occurs but if we set an href="" it will refresh the page only if we have the ng-animate tag associated as well - weird huh?
                   '<a ng-class="classNames(img)"' +
