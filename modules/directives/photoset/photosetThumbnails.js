@@ -10,8 +10,13 @@ angular.module('flickr.directives')
       scope: {
         setId: '@',
         photo: '=',
+        photos: '=',
+        
+        photoset: '=', 
+
         thumbnailClass: '@',
-        useFilter: '='
+        useFilter: '=',
+        multiSelect: '='
       },
       restrict: 'EA',
       replace: true,
@@ -28,20 +33,39 @@ angular.module('flickr.directives')
       link: function (scope, element, attrs) {
         var classNames = { clicky: true, 'photoset-thumbnail': true };
 
+        if (scope.multiSelect) {
+          scope.photos = [];
+        }
+
         if (attrs.thumbnailClass) {
           classNames[attrs.thumbnailClass] = true;
         }
 
         scope.classNames = function (photo) {
           return angular.extend(classNames, {
-            active: (scope.photo && scope.photo.id && photo.id === scope.photo.id)
+            active: photo.selected
           });
         };
 
         scope.thumbnailClick = function (photo) {
-          if (photo && attrs.photo) {
+
+          if (scope.multiSelect) {
+            photo.selected = !photo.selected;
+            if (photo.selected) {
+              scope.photos.push(photo);
+            }else{
+              var index = scope.photos.indexOf(photo);
+              scope.photos.slice(index, 1);
+            }
+          }else{
+            if (scope.photo) {
+              scope.photo.selected = false;
+            }
+            photo.selected = true;
             scope.photo = photo;
+          
           }
+
         };
 
         attrs.$observe('setId', function (setId) {
