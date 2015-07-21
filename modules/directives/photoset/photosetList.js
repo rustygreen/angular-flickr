@@ -12,12 +12,13 @@ angular.module('flickr.directives')
         sets: '=',
         set: '=',
         setId: '=',
-        listClass: '@'
+        listClass: '@',
+        itemClass: '@'
       },
       restrict: 'EA',
       replace: true,
       template: '<ul class="{{listClass}}">' +
-                  '<li ng-repeat="photoset in $sets.photosets.photoset" ng-class="{active:set.id==selectedId}" ng-animate="\'photoset-list\'">' +
+                  '<li ng-repeat="photoset in $sets.photosets.photoset"  class="{{itemClass}}" ng-class="{active:set.id==selectedId}" ng-animate="\'photoset-list\'">' +
                     '<a ng-if="photoset.id !== set.id" href="" ng-click="setSelected(photoset)">{{photoset.title._content}}</a>' +
                     '<span ng-if="photoset.id == set.id">{{photoset.title._content}}</span>' +
                   '</li>' +
