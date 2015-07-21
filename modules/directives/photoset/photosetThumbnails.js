@@ -3,7 +3,7 @@
 angular.module('flickr.directives')
   .directive('photosetThumbnails', function (flickrConfig, flickrLoading, Photoset) {
     var config = angular.extend({
-      autoSelectIndex: 0
+      // autoSelectIndex: 0
     }, flickrConfig.photosetThumbnails);
 
     return {
