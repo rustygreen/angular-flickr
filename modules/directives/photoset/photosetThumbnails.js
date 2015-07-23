@@ -52,7 +52,6 @@ angular.module('flickr.directives')
         };
 
         scope.thumbnailClick = function (photo, forceSelect) {
-          console.log(photo, forceSelect);
           if (scope.multiSelect) {
             
             photo.selected = (forceSelect === null || forceSelect === undefined) ? (!photo.selected) : forceSelect;
@@ -69,10 +68,7 @@ angular.module('flickr.directives')
             }
             photo.selected = true;
             scope.photo = photo;
-          
           }
-          console.log(photo.selected);
-
         };
 
         scope.selectAll = function() {
