@@ -21,7 +21,11 @@ angular.module('flickr.directives')
       restrict: 'EA',
       replace: true,
       template: '<div>' +
-                  '<photo-filter search="search" orders="" ng-if="useFilter"></photo-filter>' +
+                  '<photo-filter ng-if="useFilter" search="search" orders="" ></photo-filter>' +
+                  '<div ng-if="multiSelect">' +
+                      '<button ng-click="selectAll()" class="btn btn-default">Select All</button>' +
+                      '<button ng-click="deselectAll()" class="btn btn-default">Deselect All</button>' +
+                    '</div>' +
                   // Note that we don't have an href tag on this anchor and we have to manually set the cursor to a pointer (by using 'clicky' class). Not sure
                   // why this occurs but if we set an href="" it will refresh the page only if we have the ng-animate tag associated as well - weird huh?
                   '<a ng-class="classNames(img)"' +
@@ -47,10 +51,12 @@ angular.module('flickr.directives')
           });
         };
 
-        scope.thumbnailClick = function (photo) {
-
+        scope.thumbnailClick = function (photo, forceSelect) {
+          console.log(photo, forceSelect);
           if (scope.multiSelect) {
-            photo.selected = !photo.selected;
+            
+            photo.selected = (forceSelect === null || forceSelect === undefined) ? (!photo.selected) : forceSelect;
+
             if (photo.selected) {
               scope.photos.push(photo);
             }else{
@@ -65,7 +71,19 @@ angular.module('flickr.directives')
             scope.photo = photo;
           
           }
+          console.log(photo.selected);
 
+        };
+
+        scope.selectAll = function() {
+          angular.forEach(scope.photoset.photo, function (photo) {
+            scope.thumbnailClick(photo, true);
+          });
+        };
+        scope.deselectAll = function() {
+          angular.forEach(scope.photoset.photo, function (photo) {
+            scope.thumbnailClick(photo, false);
+          });
         };
 
         attrs.$observe('setId', function (setId) {
