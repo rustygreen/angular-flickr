@@ -16,16 +16,21 @@ angular.module('flickr.directives')
 
         thumbnailClass: '@',
         useFilter: '=',
-        multiSelect: '='
+        multiSelect: '=',
+        selectCallback: '='
       },
       restrict: 'EA',
       replace: true,
       template: '<div>' +
+                  // '<button class="btn btn-default">small</button>'+
+                  // '<button class="btn btn-default">large</button>'+
                   '<photo-filter ng-if="useFilter" search="search" orders="" ></photo-filter>' +
+
                   '<div ng-if="multiSelect">' +
                       '<button ng-click="selectAll()" class="btn btn-default">Select All</button>' +
                       '<button ng-click="deselectAll()" class="btn btn-default">Deselect All</button>' +
                     '</div>' +
+
                   // Note that we don't have an href tag on this anchor and we have to manually set the cursor to a pointer (by using 'clicky' class). Not sure
                   // why this occurs but if we set an href="" it will refresh the page only if we have the ng-animate tag associated as well - weird huh?
                   '<a ng-class="classNames(img)"' +
@@ -69,6 +74,11 @@ angular.module('flickr.directives')
             photo.selected = true;
             scope.photo = photo;
           }
+
+          if (scope.selectCallback) {
+            scope.selectCallback(photo);
+          }
+            
         };
 
         scope.selectAll = function() {
@@ -85,12 +95,27 @@ angular.module('flickr.directives')
         attrs.$observe('setId', function (setId) {
           if (setId) {
             flickrLoading.isLoading = true;
-            scope.photoset = Photoset.get({ photoset_id: setId }, function (set) {
+            Photoset.get({ photoset_id: setId }, function (set) {
+              console.log(scope, set.photoset);
+
+              angular.forEach(set.photoset.photo, function (photo) {
+                var url = 'http://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret;
+                angular.extend(photo, {
+                  small: url + '_s.jpg',
+                  medium: url + '_q.jpg',
+                  large: url + '_b.jpg'
+                });
+              });
+              
+
               if (set && set.photo && set.photo.length && config.autoSelectIndex > -1) {
                 // Set the initial selected thumbnail to the configured index.
                 scope.thumbnailClick(set.photo[config.autoSelectIndex]);
                 flickrLoading.isLoading = false;
               }
+
+              scope.photoset = set.photoset;
+
             });
           }
         });
