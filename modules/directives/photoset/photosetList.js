@@ -17,10 +17,13 @@ angular.module('flickr.directives')
       },
       restrict: 'EA',
       replace: true,
+      // templateUrl: 'directives/photoset/photosetList.html',
       template: '<div>' + 
-                  '<div class="form-group"><label for="filterPhotosets">Flickr photo sets</label>' +
-                  '<input class="form-control" ng-model="filterPhotosets" id="filterPhotosets" placeholder="filter sets"/><ul class="{{listClass}}">' +
+                  '<div class="input-group">' + 
+                  '<span class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></span>' +
+                  '<input class="form-control" ng-model="filterPhotosets" placeholder="filter photo sets"/>' +
                   '</div>' + 
+                  '<ul class="{{listClass}}"/>' + 
                   '<li ng-repeat="photoset in $sets.photosets.photoset | filter:filterPhotosets"  class="{{itemClass}}" ng-class="{active:set.id==selectedId}" ng-animate="\'photoset-list\'">' +
                     '<a ng-if="photoset.id !== set.id" href="" ng-click="setSelected(photoset)">{{photoset.title._content}}</a>' +
                     '<span ng-if="photoset.id == set.id">{{photoset.title._content}}</span>' +

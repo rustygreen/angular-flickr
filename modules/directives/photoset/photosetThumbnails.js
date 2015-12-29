@@ -9,21 +9,18 @@ angular.module('flickr.directives')
     return {
       scope: {
         setId: '@',
-        photo: '=',
         photos: '=',
-        
-        photoset: '=', 
-
         thumbnailClass: '@',
         useFilter: '=',
         multiSelect: '=',
         selectCallback: '='
       },
+      
       restrict: 'EA',
       replace: true,
+
       template: '<div>' +
-                  // '<button class="btn btn-default">small</button>'+
-                  // '<button class="btn btn-default">large</button>'+
+                  
                   '<photo-filter ng-if="useFilter" search="search" orders="" ></photo-filter>' +
 
                   '<div ng-if="multiSelect">' +
@@ -57,28 +54,29 @@ angular.module('flickr.directives')
         };
 
         scope.thumbnailClick = function (photo, forceSelect) {
-          if (scope.multiSelect) {
+          // if (scope.multiSelect) {
             
-            photo.selected = (forceSelect === null || forceSelect === undefined) ? (!photo.selected) : forceSelect;
+          //   photo.selected = (forceSelect === null || forceSelect === undefined) ? (!photo.selected) : forceSelect;
 
-            if (photo.selected) {
-              scope.photos.push(photo);
-            }else{
-              var index = scope.photos.indexOf(photo);
-              scope.photos.slice(index, 1);
-            }
-          }else{
-            if (scope.photo) {
-              scope.photo.selected = false;
-            }
-            photo.selected = true;
-            scope.photo = photo;
-          }
+          //   if (photo.selected) {
+          //     scope.photos.push(photo);
+          //   }else{
+          //     var index = scope.photos.indexOf(photo);
+          //     scope.photos.slice(index, 1);
+          //   }
+          // }else{
+          //   if (scope.photo) {
+          //     scope.photo.selected = false;
+          //   }
+          //   photo.selected = true;
+          //   scope.photo = photo;
+          // }
 
-          if (scope.selectCallback) {
+            if (!scope.selectCallback) {
+                console.error('no callback found, we can\'t assign the picture');
+                return;
+            }
             scope.selectCallback(photo);
-          }
-            
         };
 
         scope.selectAll = function() {
@@ -96,7 +94,7 @@ angular.module('flickr.directives')
           if (setId) {
             flickrLoading.isLoading = true;
             Photoset.get({ photoset_id: setId }, function (set) {
-              console.log(scope, set.photoset);
+              // console.log(scope, set.photoset);
 
               angular.forEach(set.photoset.photo, function (photo) {
                 var url = 'http://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret;
