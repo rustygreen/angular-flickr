@@ -4,9 +4,7 @@ angular.module('flickr.directives')
       var animator = $animator(scope, attrs);
 
       element.bind('load', function (event) {
-        console.log('here................');
         animator.animate('photoset-thumbnails', element);
-        //if(!scope.$$phase) scope.$apply();
       });
     }
   });
