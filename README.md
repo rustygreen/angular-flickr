@@ -1,9 +1,14 @@
-angular-flickr
+DEPRECATED: angular-flickr
 ==============
+
+# REPOSITORY IS NOT MAINTAINED
+__Note:__ this repsitory is no longer maintained, uses older technology and patterns, and is not recommended for production use. 
+
+-------------------
 
 A flickr module for angular js. The module includes support for creating a photo gallery, thumbnail view, and all of the directives/filters/services to support it using the Flickr API.
 
-You can view a Flickr "Set" gallery demo here: [https://angular-flicker.netlify.com/#/photoset/panel](https://angular-flicker.netlify.com/#/photoset/panel?ref=github)
+You can view a Flickr "Set" gallery demo here: [https://angular-flicker.netlify.com](https://angular-flicker.netlify.com?ref=github)
 
 There are no dependencies required for this angular module (other than angular js), but all directives do have pre-set css classes to look good with Bootstrap 3.0 css (Bootstrap javascript is not required - which means no jquery either)
 
