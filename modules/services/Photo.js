@@ -3,7 +3,7 @@
 angular.module('flickr.services')
   .factory('Photo', function ($resource, flickrConfig) {
     var config = angular.extend({
-      url: 'http://api.flickr.com/services/rest/',
+      url: 'https://api.flickr.com/services/rest/',
       params: {
         common: {
           format: 'json',     // Optional.
